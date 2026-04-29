@@ -1,0 +1,103 @@
+.main-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f0f4f8; // Un color base suave
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.bg-shape {
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 120%;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px; // Simuando tamaño móvil
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+// MIXIN para el efecto Glassmorphism
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.4); // Blanco semi-transparente
+  backdrop-filter: blur(15px); // El desenfoque clave
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 28px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+.glass-card {
+  @include glass-effect;
+  padding: 25px;
+  
+  h1 {
+    font-size: 24px;
+    color: #2d3436;
+    margin-top: 15px;
+    span { font-weight: 300; font-size: 18px; }
+  }
+}
+
+.welcome-card {
+  text-align: center;
+  .main-icon { width: 80px; margin-bottom: 10px; }
+  
+  .btn-start {
+    margin-top: 20px;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    background: #6c5ce7; // Morado vibrante del diseño
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    &:hover { transform: scale(1.02); }
+  }
+}
+
+.products-card {
+  h3 { margin-bottom: 20px; color: #2d3436; }
+  
+  .categories-grid {
+    display: flex;
+    justify-content: space-around;
+    
+    .category-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      
+      .icon-wrapper {
+        width: 60px;
+        height: 60px;
+        background: white;
+        border-radius: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        
+        img { width: 35px; }
+      }
+      
+      span { font-size: 14px; font-weight: 500; }
+    }
+  }
+}
