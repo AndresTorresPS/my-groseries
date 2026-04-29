@@ -1,14 +1,7 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { Home } from './pages/home/home'; // Importación automática
+import { Routes } from '@angular/router';
+import { Home } from './pages/home/home';
 
-const routes: Routes = [
-  { path: '', component: Home }, // Ruta vacía = Pantalla de inicio
-  { path: '**', redirectTo: '' }          // Si el usuario escribe cualquier cosa, vuelve a home
+export const routes: Routes = [
+  { path: '', component: Home },
+  { path: '**', redirectTo: '' }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
